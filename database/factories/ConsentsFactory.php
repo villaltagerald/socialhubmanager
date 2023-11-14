@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
-use App\Models\Social;
+use App\Models\Media;
 
 class AuthorizationFactory extends Factory
 {
@@ -17,7 +17,7 @@ class AuthorizationFactory extends Factory
     {
         return [
             'user_id'=> User::factory(),
-            'social_id'=> Social::factory(),
+            'media_id'=> Media::factory(),
             'consumer_key' => $this->faker->sha256,
             'consumer_secret' => $this->faker->sha256,
             'access_token' => $this->faker->sha256,

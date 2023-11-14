@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuthorizationTable extends Migration
+class CreateConsentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateAuthorizationTable extends Migration
      */
     public function up()
     {
-        Schema::create('authorization', function (Blueprint $table) {
+        Schema::create('consents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('social_id');
+            $table->foreignId('media_id');
             $table->string('consumer_key')->unique();
             $table->string('consumer_secret')->unique();
             $table->string('access_token')->unique();
@@ -35,6 +35,6 @@ class CreateAuthorizationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('authorization');
+        Schema::dropIfExists('consents');
     }
 }

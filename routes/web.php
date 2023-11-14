@@ -5,7 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PublishingController;
-use App\Http\Controllers\AuthorizationController;
+use App\Http\Controllers\ConsentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,10 @@ Route::get('publishing/instant', [PublishingController::class, 'instant'])->name
 Route::get('publishing/queued', [PublishingController::class, 'queued'])->middleware('auth');
 Route::get('publishing/scheduled', [PublishingController::class, 'scheduled'])->middleware('auth');
 
-Route::get('authorization/twitter', [AuthorizationController::class, 'twitter'])->name('authorization.twitter')->middleware('auth');
-Route::get('authorization/reddit', [AuthorizationController::class, 'reddit'])->middleware('auth');
-Route::get('authorization/pinterest', [AuthorizationController::class, 'pinterest'])->middleware('auth');
+Route::get('authorization/twitter', [ConsentsController::class, 'twitter'])->name('authorization.twitter')->middleware('auth');
+Route::get('authorization/reddit', [ConsentsController::class, 'reddit'])->middleware('auth');
+Route::get('authorization/pinterest', [ConsentsController::class, 'pinterest'])->middleware('auth');
+
+Route::post('authorization/twitter', [ConsentsController::class, 'store'])->name('authorization.twitter')->middleware('auth');
+Route::post('authorization/reddit', [ConsentsController::class, 'store'])->name('authorization.reddit')->middleware('auth');
+Route::post('authorization/pinterest', [ConsentsController::class, 'store'])->name('authorization.pinterest')->middleware('auth');
