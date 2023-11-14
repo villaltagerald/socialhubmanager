@@ -1,7 +1,7 @@
 <x-layout>
-    <x-setting heading="Queued publication">
+    <x-setting heading="Queued publication" :link="['instant','queued','scheduled']" url="publishing">
         <div class="w-85">
-            <form method="POST" action="/admin/posts" enctype="multipart/form-data">
+            <form method="POST" action="#" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-3 gap-4">
                     <div class="row-span-3">

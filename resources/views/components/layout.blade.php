@@ -33,9 +33,9 @@
                             <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</button>
                         </div>
                         <div class="mt-4">
-                            <x-dropdown-item href="#" :active="request()->is('#')">Dashboard</x-dropdown-item>
-                            <x-dropdown-item href="publishing/instant" :active="request()->is('publishing/')">Publishing</x-dropdown-item>
-                            <x-dropdown-item href="#" :active="request()->is('#')">Conf Social Media</x-dropdown-item>
+                            <x-dropdown-item href="{{ route('home') }}" :active="request()->routeIs('/')">Dashboard</x-dropdown-item>
+                            <x-dropdown-item href="{{ route('publishing.instant') }}" :active="request()->routeIs('publishing/instant')">Publishing</x-dropdown-item>
+                            <x-dropdown-item href="{{ route('authorization.twitter') }}" :active="request()->routeIs('authorization/twitter')">Authorization</x-dropdown-item>
                         </div>
                         <div class="mt-4">
                             <x-dropdown-item href="#" x-data="{}" :active="false" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
