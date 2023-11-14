@@ -1,28 +1,30 @@
-<!doctype html>
-
-<title>Social Hub Manager</title>
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Social Hub Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
 <body style="font-family: Open Sans, sans-serif">
+    
+    <div id="header-container" class="bg-gray-800 text-white w-full fixed top-0 flex items-center justify-center p-4">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+            <img src="/images/menu.svg" alt="Icono del menú" class="w-8 h-8">
+        </button>
+        @include('dashboard._header')
+    </div>
+    
     <section class="px-6 py-8">
         
-        <div class="mb-8 flex items-baseline justify-center">
-            <button id="menu-toggle" class="text-white focus:outline-none">
-                <img src="/images/menu.svg" alt="Icono del menú" class="w-6 h-6">
-            </button>
-            @include('dashboard._header')
-        </div>
-        
-        
-
-        <nav id="nav" class=" h-screen w-1/6 bg-gray-800 text-white p-4 fixed left-0 top-0 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <nav id="nav" class=" h-screen w-1/10 bg-gray-800 text-white p-4 fixed left-0 top-0 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
             <div class="flex flex-col items-center justify-start h-full">
                 <div class="mb-8">
-                    <img src="/images/logo.png" alt="SocialHubManager Logo" class="w-16 h-16 mb-2">
+                    <a href="/">
+                        <img src="/images/logo.png" alt="SocialHubManager Logo" class="w-16 h-16 mb-2">
+                    </a>
                 </div>
         
                 <div>
@@ -31,10 +33,9 @@
                             <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</button>
                         </div>
                         <div class="mt-4">
-                            <x-dropdown-item href="#" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
-                            <x-dropdown-item href="#" :active="request()->is('admin/posts/create')">Instantaneous</x-dropdown-item>
-                            <x-dropdown-item href="#" :active="request()->is('admin/posts/create')">Queued</x-dropdown-item>
-                            <x-dropdown-item href="#" :active="request()->is('admin/posts/create')">Scheduled</x-dropdown-item>
+                            <x-dropdown-item href="#" :active="request()->is('#')">Dashboard</x-dropdown-item>
+                            <x-dropdown-item href="publishing/instant" :active="request()->is('publishing/')">Publishing</x-dropdown-item>
+                            <x-dropdown-item href="#" :active="request()->is('#')">Conf Social Media</x-dropdown-item>
                         </div>
                         <div class="mt-4">
                             <x-dropdown-item href="#" x-data="{}" :active="false" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
@@ -56,7 +57,7 @@
             </div>
         </nav>
 
-        <div class="ml-1/6">
+        <div class="ml-1/6 mt-20">
             {{ $slot }}
         </div>
         

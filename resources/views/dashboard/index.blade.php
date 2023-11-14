@@ -17,6 +17,5 @@
                 </div>
             </div>
         @endauth
-        <x-post heading="Instant publication"/>
     </main>
 </x-layout>

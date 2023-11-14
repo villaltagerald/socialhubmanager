@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\PublishingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,6 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-//Auth::routes();
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('publishing/instant', [PublishingController::class, 'instant'])->middleware('auth');
+Route::get('publishing/queued', [PublishingController::class, 'queued'])->middleware('auth');
+Route::get('publishing/scheduled', [PublishingController::class, 'scheduled'])->middleware('auth');
