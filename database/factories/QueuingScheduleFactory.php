@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
-class QueuedScheduleFactory extends Factory
+use App\Models\Post;
+class QueuingScheduleFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,7 +15,7 @@ class QueuedScheduleFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'post_id' => null,
+            'post_id' => Post::factory(),
             'publish_at' => now(),
             'status' => $this->faker->boolean,
         ];

@@ -1,17 +1,18 @@
 <x-layout>
-    <x-setting heading="Instant publication" :link="['instant','queued','scheduled','queued schedule']" url="publishing">
+    <x-setting heading="Instant publication" :link="['instant','queued','scheduled','queuing schedule']" url="publishing">
         <div class="w-85">
-            <form method="POST" action="#" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('publishing.instant')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-3 gap-4">
                     <div class="row-span-3">
-                        <x-social/>
+                        <x-social :apis="$apis"/>
                     </div>
 
                     <div class="col-span-2">
                         <x-panel>
                             <x-form.textarea name='enunciated' />
                             <x-form.input name='thumbnail' type='file'/>
+                            <input type="hidden" name="post_id" >
                         </x-panel>
                     </div>
                     

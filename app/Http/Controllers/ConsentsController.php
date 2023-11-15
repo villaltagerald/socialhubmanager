@@ -12,38 +12,20 @@ class ConsentsController extends Controller
     public function twitter()
     {   
         $media = Media::where('name', 'twitter')->first();
-        $consent=Consents::where([
-            'media_id'=>$media->id,
-            'user_id'=>request()->user()->id
-            ])->first();
-        return view('components.twitter', [
-            'media' => $media,
-            'consent'=>$consent,
-        ]);
+        $consent=Consents::where([ 'media_id'=>$media->id, 'user_id'=>request()->user()->id  ])->first();
+        return view('components.twitter', [ 'media' => $media, 'consent'=>$consent, ]);
     }
     public function reddit()
     {
         $media = Media::where('name', 'reddit')->first();
-        $consent=Consents::where([
-            'media_id'=>$media->id,
-            'user_id'=>request()->user()->id
-            ])->first();
-        return view('components.reddit', [
-            'media' => $media,
-            'consent'=>$consent,
-        ]);
+        $consent=Consents::where([ 'media_id'=>$media->id, 'user_id'=>request()->user()->id ])->first();
+        return view('components.reddit', [ 'media' => $media, 'consent'=>$consent, ]);
     }
     public function pinterest()
     {
         $media = Media::where('name', 'pinterest')->first();
-        $consent=Consents::where([
-            'media_id'=>$media->id,
-            'user_id'=>request()->user()->id
-            ])->first();
-        return view('components.pinterest', [
-            'media' => $media,
-            'consent'=>$consent,
-        ]);
+        $consent=Consents::where([ 'media_id'=>$media->id, 'user_id'=>request()->user()->id ])->first();
+        return view('components.pinterest', [ 'media' => $media, 'consent'=>$consent, ]);
     }
 
     public function store()

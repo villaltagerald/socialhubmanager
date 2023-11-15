@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use App\Models\TypePost;
 
 class PostFactory extends Factory
 {
@@ -17,7 +18,8 @@ class PostFactory extends Factory
         return [
             
             'user_id'=>User::factory(),
-            'body'=>$this->faker->paragraphs(6),
+            'enunciated'=>$this->faker->paragraphs(6),
+            'typepost'=>TypePost::factory(),
         ];
     }
 }

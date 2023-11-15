@@ -16,7 +16,8 @@ class CreatePostTable extends Migration
         Schema::create('post', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->text('body');
+            $table->foreignId('typepost_id');
+            $table->text('enunciated');
             $table->string('thumbnail')->nullable();
             $table->timestamps();
         });

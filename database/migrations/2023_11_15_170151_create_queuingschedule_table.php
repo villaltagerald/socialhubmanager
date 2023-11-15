@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQueuedscheduleTable extends Migration
+class CreateQueuingScheduleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateQueuedscheduleTable extends Migration
      */
     public function up()
     {
-        Schema::create('queuedschedule', function (Blueprint $table) {
+        Schema::create('queuingschedule', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->foreignId('post_id')->nullable();
@@ -30,6 +30,6 @@ class CreateQueuedscheduleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('queuedschedule');
+        Schema::dropIfExists('queuingschedule');
     }
 }

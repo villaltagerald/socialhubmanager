@@ -8,18 +8,13 @@
     <div class="flex">
         <aside class="w-30 pr-4 border-r ml-4">
             <ul>
-                <li class="mb-4 uppercase">
-                    <a href={{$link[0]}} class="{{ request()->is("{$url}/{$link[0]}") ? 'text-blue-500' : '' }}">{{$link[0]}}</a>
-                </li>
-                <li class="mb-4 uppercase">
-                    <a href={{$link[1]}} class="{{ request()->is("{$url}/{$link[1]}") ? 'text-blue-500' : '' }}">{{$link[1]}}</a>
-                </li>
-                <li class="mb-4 uppercase">
-                    <a href={{$link[2]}} class="{{ request()->is("{$url}/{$link[2]}") ? 'text-blue-500' : '' }}">{{$link[2]}}</a>
-                </li>
-                <li class="mb-4 uppercase">
-                    <a href='queuedscheduled' class="{{ request()->is("publishing/queuedscheduled") ? 'text-blue-500' : '' }}">queued schedule</a>
-                </li>
+                @for ($i = 0; $i < count($link); $i++)
+                    <li class="mb-4 uppercase">
+                        <a href="{{ str_replace(' ', '', $link[$i]) }}" class="{{ request()->is("{$url}/{str_replace(' ', '', $link[$i])}") ? 'text-blue-500' : '' }}">
+                            {{ $link[$i] }}
+                        </a>
+                    </li>
+                @endfor
             </ul>
         </aside>
 

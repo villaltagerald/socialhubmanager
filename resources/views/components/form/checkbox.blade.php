@@ -7,7 +7,6 @@
     <div class="form-check form-switch d-inline-flex ml-auto">
         <input class="form-check-input custom-checkbox"
             name={{$name}}
-            id={{$name}}
             type="checkbox"
             {{ $attributes(['value' => old($name) ]) }}
         >

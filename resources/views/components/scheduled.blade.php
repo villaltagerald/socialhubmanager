@@ -1,11 +1,11 @@
 <x-layout>
-    <x-setting heading="Scheduled publication" :link="['instant','queued','scheduled','queued schedule']" url="publishing">
+    <x-setting heading="Scheduled publication" :link="['instant','queued','scheduled','queuing schedule']" url="publishing">
         <div class="w-85">
-            <form method="POST" action="#" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('publishing.scheduled')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-3 gap-4">
                     <div class="row-span-3">
-                        <x-social/>
+                        <x-social :apis="$apis"/>
                     </div>
 
                     <div class="col-span-2">

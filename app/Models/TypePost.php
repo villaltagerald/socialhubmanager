@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class TypePost extends Model
 {
     use HasFactory;
+    protected $table = 'typepost';
 }

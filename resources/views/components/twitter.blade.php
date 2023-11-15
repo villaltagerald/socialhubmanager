@@ -1,25 +1,4 @@
 
-{{-- <x-layout>
-    <x-setting heading="Twitter Authorization" :link="['twitter','reddit','pinterest']" url="authorization">
-        <div class="w-85">
-            <form method="POST" action="{{ route('authorization.twitter') }}" enctype="multipart/form-data">
-                @csrf
-                
-                <x-form.input name='consumer_key' autocomplete="off"/>
-                <x-form.input name='consumer_secret' autocomplete="off"/>
-                <x-form.input name='access_token' autocomplete="off"/>
-                <x-form.input name='token_secret' autocomplete="off"/>
-                <x-form.input name='bearer_token' autocomplete="off"/>
-                <x-form.input name='client_id' autocomplete="off"/>
-                <x-form.input name='client_secret' autocomplete="off"/>
-                <input type="hidden" name="media_id" value="{{ $media->id }}">
-
-                <x-form.button>Publish</x-submit-button>
-            </form>
-        </div>
-    </x-setting>
-</x-layout> --}}
-
 <x-layout>
     <x-setting heading="{{ isset($consent) ? 'Edit' : 'Create' }} Twitter Authorization" :link="['twitter','reddit','pinterest']" url="authorization">
         <div class="w-85">

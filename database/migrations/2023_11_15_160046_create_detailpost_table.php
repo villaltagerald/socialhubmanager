@@ -15,9 +15,10 @@ class CreateDetailpostTable extends Migration
     {
         Schema::create('detailpost', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id');
-            $table->foreignId('media_id');
+            $table->foreignId('post_id')->constrained('post')->cascadeOnDelete();
+            $table->foreignId('media_id')->constrained('media'); // Asumiendo que también hay una tabla 'media'
             $table->timestamp('published_at')->nullable();
+            $table->timestamp('publish_at')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

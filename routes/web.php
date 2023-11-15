@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SessionsController;
-use App\Http\Controllers\PublishingController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ConsentsController;
+use App\Http\Controllers\QueuingScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +29,16 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-Route::get('publishing/instant', [PublishingController::class, 'instant'])->name('publishing.instant')->middleware('auth');
-Route::get('publishing/queued', [PublishingController::class, 'queued'])->middleware('auth');
-Route::get('publishing/scheduled', [PublishingController::class, 'scheduled'])->middleware('auth');
-Route::get('publishing/queuedscheduled', [PublishingController::class, 'queuedscheduled'])->middleware('auth');
+Route::get('publishing/instant', [PostController::class, 'instant'])->name('publishing.instant')->middleware('auth');
+Route::get('publishing/queued', [PostController::class, 'queued'])->middleware('auth');
+Route::get('publishing/scheduled', [PostController::class, 'scheduled'])->middleware('auth');
+
+Route::post('publishing/instant', [PostController::class, 'store'])->name('publishing.instant')->middleware('auth');
+Route::post('publishing/queued', [PostController::class, 'store'])->name('publishing.queued')->middleware('auth');
+Route::post('publishing/scheduled', [PostController::class, 'store'])->name('publishing.scheduled')->middleware('auth');
+
+Route::get('publishing/queuingschedule', [QueuingScheduleController::class, 'queuingschedule'])->middleware('auth');
+Route::post('publishing/queuingschedule', [QueuingScheduleController::class, 'store'])->name('publishing.queuingschedule')->middleware('auth');
 
 Route::get('authorization/twitter', [ConsentsController::class, 'twitter'])->name('authorization.twitter')->middleware('auth');
 Route::get('authorization/reddit', [ConsentsController::class, 'reddit'])->middleware('auth');
