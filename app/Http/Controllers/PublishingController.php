@@ -18,4 +18,8 @@ class PublishingController extends Controller
     {
         return view('components.scheduled');
     }
+    public function queuedscheduled()
+    {
+        return view('components.queuedschedule');
+    }
 }

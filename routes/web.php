@@ -31,6 +31,7 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 Route::get('publishing/instant', [PublishingController::class, 'instant'])->name('publishing.instant')->middleware('auth');
 Route::get('publishing/queued', [PublishingController::class, 'queued'])->middleware('auth');
 Route::get('publishing/scheduled', [PublishingController::class, 'scheduled'])->middleware('auth');
+Route::get('publishing/queuedscheduled', [PublishingController::class, 'queuedscheduled'])->middleware('auth');
 
 Route::get('authorization/twitter', [ConsentsController::class, 'twitter'])->name('authorization.twitter')->middleware('auth');
 Route::get('authorization/reddit', [ConsentsController::class, 'reddit'])->middleware('auth');

@@ -17,6 +17,9 @@
                 <li class="mb-4 uppercase">
                     <a href={{$link[2]}} class="{{ request()->is("{$url}/{$link[2]}") ? 'text-blue-500' : '' }}">{{$link[2]}}</a>
                 </li>
+                <li class="mb-4 uppercase">
+                    <a href='queuedscheduled' class="{{ request()->is("publishing/queuedscheduled") ? 'text-blue-500' : '' }}">queued schedule</a>
+                </li>
             </ul>
         </aside>
 

@@ -21,5 +21,10 @@ class DatabaseSeeder extends Seeder
             ['name' => 'reddit'],
             ['name' => 'pinterest'],
         ]);
+        DB::table('typepost')->insert([
+            ['name' => 'instant'],
+            ['name' => 'queued'],
+            ['name' => 'scheduled'],
+        ]);
     }
 }
