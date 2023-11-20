@@ -1,8 +1,14 @@
 @props (['apis'])
 <div class="mb-6">
     @for ($i = 0; $i < count($apis); $i++)
-        <x-form.checkbox id="{{$apis[$i]->id}}" name="{{$apis[$i]->name}}" value="{{$apis[$i]->id}}" img='/images/{{$apis[$i]->name}}.svg'/>
+        <x-form.checkbox 
+        id="{{$apis[$i]->id}}" 
+        name="{{$apis[$i]->name}}" 
+        value="{{$apis[$i]->id}}" 
+        img='/images/{{$apis[$i]->name}}.svg' 
+        nameCheck="checkboxes[]"/>
     @endfor
+    <x-form.error name="checkboxes"/>
 </div> 
 
 

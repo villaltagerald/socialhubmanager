@@ -17,13 +17,13 @@ class CreateConsentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('media_id');
-            $table->string('consumer_key')->unique();
-            $table->string('consumer_secret')->unique();
-            $table->string('access_token')->unique();
-            $table->string('token_secret')->unique();
-            $table->string('bearer_token')->unique();
-            $table->string('client_id')->unique();
-            $table->string('client_secret')->unique();
+            $table->text('consumer_key')->nullable();
+            $table->text('consumer_secret')->nullable();
+            $table->text('access_token')->nullable();
+            $table->text('token_secret')->nullable();
+            $table->text('bearer_token')->nullable();
+            $table->text('client_id')->nullable();
+            $table->text('client_secret')->nullable();
             $table->timestamps();
         });
     }

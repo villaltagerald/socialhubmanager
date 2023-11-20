@@ -36,7 +36,7 @@
                         <div class="mt-4">
                             <x-dropdown-item href="{{ route('home') }}" :active="request()->routeIs('/')">Dashboard</x-dropdown-item>
                             <x-dropdown-item href="{{ route('publishing.instant') }}" :active="request()->routeIs('publishing/instant')">Publishing</x-dropdown-item>
-                            <x-dropdown-item href="{{ route('authorization.twitter') }}" :active="request()->routeIs('authorization/twitter')">Authorization</x-dropdown-item>
+                            <x-dropdown-item href="{{ route('authorization.twitter.twitter') }}" :active="request()->routeIs('authorization/twitter')">Authorization</x-dropdown-item>
                         </div>
                         <div class="mt-4">
                             <x-dropdown-item href="#" x-data="{}" :active="false" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>

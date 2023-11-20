@@ -10,9 +10,10 @@
 
                     <div class="col-span-2">
                         <x-panel>
-                            <x-form.textarea name='enunciated' />
+                            <x-form.textarea name='enunciated' >{{ old('enunciated') }}</x-form.textarea>
                             <x-form.input name='thumbnail' type='file'/>
                             <input type="hidden" name="post_id" >
+                            <input type="hidden" name="typepost_id" value="{{ $typepost->id ?? '' }}">
                         </x-panel>
                     </div>
                     

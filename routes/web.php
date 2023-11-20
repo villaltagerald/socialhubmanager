@@ -7,7 +7,8 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ConsentsController;
 use App\Http\Controllers\QueuingScheduleController;
-
+use App\Http\Controllers\TwitterController;
+use App\Http\Controllers\RedditController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,10 +41,24 @@ Route::post('publishing/scheduled', [PostController::class, 'store'])->name('pub
 Route::get('publishing/queuingschedule', [QueuingScheduleController::class, 'queuingschedule'])->middleware('auth');
 Route::post('publishing/queuingschedule', [QueuingScheduleController::class, 'store'])->name('publishing.queuingschedule')->middleware('auth');
 
-Route::get('authorization/twitter', [ConsentsController::class, 'twitter'])->name('authorization.twitter')->middleware('auth');
-Route::get('authorization/reddit', [ConsentsController::class, 'reddit'])->middleware('auth');
-Route::get('authorization/pinterest', [ConsentsController::class, 'pinterest'])->middleware('auth');
+Route::get('authorization/twitter', [ConsentsController::class, 'twitter'])->name('authorization.twitter.twitter')->middleware('auth');
+Route::post('authorization/twitter', [ConsentsController::class, 'store'])->name('authorization.twitter.store')->middleware('auth');
+Route::patch('authorization/twitter/{consent}', [ConsentsController::class, 'update'])->name('authorization.twitter.update')->middleware('auth');
+Route::delete('authorization/twitter/{consent}', [ConsentsController::class, 'destroy'])->name('authorization.twitter.destroy')->middleware('auth');
 
-Route::post('authorization/twitter', [ConsentsController::class, 'store'])->name('authorization.twitter')->middleware('auth');
-Route::post('authorization/reddit', [ConsentsController::class, 'store'])->name('authorization.reddit')->middleware('auth');
-Route::post('authorization/pinterest', [ConsentsController::class, 'store'])->name('authorization.pinterest')->middleware('auth');
+Route::get('authorization/pinterest', [ConsentsController::class, 'pinterest'])->name('authorization.pinterest.pinterest')->middleware('auth');
+Route::post('authorization/pinterest', [ConsentsController::class, 'store'])->name('authorization.pinterest.store')->middleware('auth');
+Route::patch('authorization/pinterest/{consent}', [ConsentsController::class, 'update'])->name('authorization.pinterest.update')->middleware('auth');
+Route::delete('authorization/pinterest/{consent}', [ConsentsController::class, 'destroy'])->name('authorization.pinterest.destroy')->middleware('auth');
+
+Route::get('authorization/reddit', [ConsentsController::class, 'reddit'])->name('authorization.reddit.reddit')->middleware('auth');
+Route::post('authorization/reddit', [ConsentsController::class, 'store'])->name('authorization.reddit.store')->middleware('auth');
+Route::patch('authorization/reddit/{consent}', [ConsentsController::class, 'update'])->name('authorization.reddit.update')->middleware('auth');
+Route::delete('authorization/reddit/{consent}', [ConsentsController::class, 'destroy'])->name('authorization.reddit.destroy')->middleware('auth');
+
+
+Route::post('auth/reddit', [RedditController::class, 'redirectToReddit'])->name('auth.reddit')->middleware('auth');
+Route::get('auth/reddit/callback', [RedditController::class, 'handleRedditCallback'])->name('auth.reddit.callback')->middleware('auth');
+
+
+
