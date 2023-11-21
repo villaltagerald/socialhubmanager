@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class QueuingScheduleController extends Controller
 {
 
-    public function queuingschedule()
+    public function create()
     {   
         $queuing_schedule= QueuingSchedule::all();
 
@@ -31,5 +31,10 @@ class QueuingScheduleController extends Controller
         $user = QueuingSchedule::create($attributes);
 
         return redirect()->back()->with('success', 'Your account has been created.');
+    }
+    public function destroy(QueuingSchedule $queuingschedule)
+    {
+        $queuingschedule->delete();
+        return back()->with('success', 'Queuing schedule Deleted!');
     }
 }

@@ -38,8 +38,10 @@ Route::post('publishing/instant', [PostController::class, 'store'])->name('publi
 Route::post('publishing/queued', [PostController::class, 'store'])->name('publishing.queued')->middleware('auth');
 Route::post('publishing/scheduled', [PostController::class, 'store'])->name('publishing.scheduled')->middleware('auth');
 
-Route::get('publishing/queuingschedule', [QueuingScheduleController::class, 'queuingschedule'])->middleware('auth');
-Route::post('publishing/queuingschedule', [QueuingScheduleController::class, 'store'])->name('publishing.queuingschedule')->middleware('auth');
+Route::get('publishing/queuingschedule', [QueuingScheduleController::class, 'create'])->name('queuingschedule.create')->middleware('auth');
+Route::post('publishing/queuingschedule', [QueuingScheduleController::class, 'store'])->name('queuingschedule.store')->middleware('auth');
+Route::delete('publishing/queuingschedule/{queuingschedule}', [QueuingScheduleController::class, 'destroy'])->name('queuingschedule.destroy')->middleware('auth');
+
 
 Route::get('authorization/twitter', [ConsentsController::class, 'twitter'])->name('authorization.twitter.twitter')->middleware('auth');
 Route::post('authorization/twitter', [ConsentsController::class, 'store'])->name('authorization.twitter.store')->middleware('auth');
