@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10c4ee80685a93f4daa563d143fc4c90",
+    "content-hash": "b5f64a1719fe1eef8926cc3db9f744c7",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2133,6 +2133,67 @@
                 "source": "https://github.com/thephpleague/oauth2-client/tree/2.7.0"
             },
             "time": "2023-04-16T18:19:15+00:00"
+        },
+        {
+            "name": "lrf141/oauth2-mastodon",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lrf141/oauth2-mastodon.git",
+                "reference": "ba051985643bf46788c151dc70bc8ee85edff6a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lrf141/oauth2-mastodon/zipball/ba051985643bf46788c151dc70bc8ee85edff6a4",
+                "reference": "ba051985643bf46788c151dc70bc8ee85edff6a4",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "phpunit/phpunit": ">=5.4.3",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lrf141\\OAuth2\\Client\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "K.Takeuchi",
+                    "email": "ghost141.kentyo@gmail.com",
+                    "homepage": "https://github.com/lrf141",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mastodon OAuth 2.0 support for the PHP League's OAuth 2.0 Client",
+            "homepage": "https://github.com/lrf141/oauth2-client",
+            "keywords": [
+                "authorization",
+                "client",
+                "lrf141",
+                "mastodon",
+                "oauth2",
+                "oauth2-mastodon"
+            ],
+            "support": {
+                "issues": "https://github.com/lrf141/oauth2-mastodon/issues",
+                "source": "https://github.com/lrf141/oauth2-mastodon/tree/1.0.1"
+            },
+            "time": "2018-08-31T08:03:49+00:00"
         },
         {
             "name": "lusitanian/oauth",

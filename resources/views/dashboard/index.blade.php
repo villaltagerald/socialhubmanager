@@ -13,15 +13,10 @@
                             <p>Publicaciones: 500</p>
                             <p>Comentarios: 1000</p>
                         </div>
-                        <form method="POST" action="{{ route('auth.reddit') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('auth.mastodon') }}" enctype="multipart/form-data">
                             @csrf
             
-                            <x-form.button>Publish</x-submit-button>
-                        </form>
-                        <form method="POST" action="{{ route('home') }}" enctype="multipart/form-data">
-                            @csrf
-            
-                            <x-form.button>verificacion</x-submit-button>
+                            <x-form.button>Token Mastodon</x-submit-button>
                         </form>
                     </div>
                 </div>

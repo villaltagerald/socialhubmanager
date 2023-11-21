@@ -1,6 +1,6 @@
 
 <x-layout>
-    <x-setting heading="{{ isset($consent) ? 'Edit' : 'Create' }} Twitter Authorization" :link="['twitter','reddit','pinterest']" url="authorization">
+    <x-setting heading="{{ isset($consent) ? 'Edit' : 'Create' }} Twitter Authorization" :link="['twitter','reddit','mastodon']" url="authorization">
         <div class="w-85">
             <form method="POST" action="{{ isset($consent) ? route('authorization.twitter.update', $consent->id) : route('authorization.twitter.store') }}" enctype="multipart/form-data">
                 @csrf

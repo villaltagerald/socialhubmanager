@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         DB::table('media')->insert([
             ['name' => 'twitter'],
             ['name' => 'reddit'],
-            ['name' => 'pinterest'],
+            ['name' => 'mastodon'],
         ]);
         DB::table('typepost')->insert([
             ['name' => 'instant'],

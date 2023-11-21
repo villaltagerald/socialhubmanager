@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "3.4.6",
         "league/oauth2-client": "^2.7",
+        "lrf141/oauth2-mastodon": "^1.0",
         "lusitanian/oauth": "^0.8.11",
         "socialiteproviders/reddit": "^4.1"
     },

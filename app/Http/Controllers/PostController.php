@@ -9,7 +9,7 @@ use App\Models\TypePost;
 use App\Models\DetailPost;
 use App\Models\Consents;
 use App\Http\Controllers\TwitterController;
-
+use App\Http\Controllers\MastodonController;
 
 class PostController extends Controller
 {
@@ -44,10 +44,18 @@ class PostController extends Controller
             ->where('media_id', $media_id)
             ->first();
     }
+    protected function getKeyMastodon($media_id)
+    {
+        return Consents::select('bearer_token')
+            ->where('user_id', request()->user()->id)
+            ->where('media_id', $media_id)
+            ->first();
+    }
 
-    protected function postInstant($checkMedia_id,$enunciated)
+    protected function postInstant($checkMedia_id, $enunciated)
     {
         $twitterController = new TwitterController();
+        $mastodonController = new MastodonController();
 
         foreach ($checkMedia_id as $valor) {
             // Realiza la acción dependiendo del valor
@@ -57,8 +65,9 @@ class PostController extends Controller
             } elseif ($valor === "2") {
                 // Acción para el valor "2"
 
-            } else {
-                // Acción para otros valores (opcional)
+            } elseif ($valor === "3") {
+                $consent = $this->getKeyMastodon($valor);
+                $resultado = $mastodonController->postMastodon($enunciated, $consent);
 
             }
         }

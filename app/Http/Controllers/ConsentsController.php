@@ -21,11 +21,11 @@ class ConsentsController extends Controller
         $consent = Consents::where(['media_id' => $media->id, 'user_id' => request()->user()->id])->first();
         return view('components.reddit', ['media' => $media, 'consent' => $consent,]);
     }
-    public function pinterest()
+    public function mastodon()
     {
-        $media = Media::where('name', 'pinterest')->first();
+        $media = Media::where('name', 'mastodon')->first();
         $consent = Consents::where(['media_id' => $media->id, 'user_id' => request()->user()->id])->first();
-        return view('components.pinterest', ['media' => $media, 'consent' => $consent,]);
+        return view('components.mastodon', ['media' => $media, 'consent' => $consent,]);
     }
 
     public function store()
