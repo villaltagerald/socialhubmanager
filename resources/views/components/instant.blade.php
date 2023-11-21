@@ -1,7 +1,7 @@
 <x-layout>
     <x-setting heading="Instant publication" :link="['instant','queued','scheduled','queuing schedule']" url="publishing">
         <div class="w-85">
-            <form method="POST" action="{{ route('publishing.instant')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('instant.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-3 gap-4">
                     <div class="row-span-3">

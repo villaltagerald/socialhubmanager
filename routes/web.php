@@ -34,9 +34,9 @@ Route::get('publishing/instant', [PostController::class, 'instant'])->name('publ
 Route::get('publishing/queued', [PostController::class, 'queued'])->middleware('auth');
 Route::get('publishing/scheduled', [PostController::class, 'scheduled'])->middleware('auth');
 
-Route::post('publishing/instant', [PostController::class, 'store'])->name('publishing.instant')->middleware('auth');
-Route::post('publishing/queued', [PostController::class, 'store'])->name('publishing.queued')->middleware('auth');
-Route::post('publishing/scheduled', [PostController::class, 'store'])->name('publishing.scheduled')->middleware('auth');
+Route::post('publishing/instant', [PostController::class, 'store'])->name('instant.store')->middleware('auth');
+Route::post('publishing/queued', [PostController::class, 'store'])->name('queued.store')->middleware('auth');
+Route::post('publishing/scheduled', [PostController::class, 'store'])->name('scheduled.store')->middleware('auth');
 
 Route::get('publishing/queuingschedule', [QueuingScheduleController::class, 'create'])->name('queuingschedule.create')->middleware('auth');
 Route::post('publishing/queuingschedule', [QueuingScheduleController::class, 'store'])->name('queuingschedule.store')->middleware('auth');

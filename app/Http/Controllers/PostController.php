@@ -78,19 +78,19 @@ class PostController extends Controller
         $checkMedia_id = request()->validate([
             'checkboxes' => 'required|array|min:1',
         ]);
-
+        
         $attributesPost = request()->validate([
             'enunciated' => 'nullable',
             'typepost_id' => 'required',
             'thumbnail' => 'nullable|image',
         ]);
-
+        
         if ($attributesPost['typepost_id'] == "1") {
             $this->postInstant($checkMedia_id['checkboxes'], $attributesPost['enunciated']);
         }
-
+        
         $attributesPost['user_id'] = request()->user()->id;
-
+        
         $post = Post::create($attributesPost);
 
         $attributesDetailPost['post_id'] = $post->id;

@@ -1,7 +1,7 @@
 <x-layout>
     <x-setting heading="Queued publication" :link="['instant','queued','scheduled','queuing schedule']" url="publishing">
         <div class="w-85">
-            <form method="POST" action="{{ route('publishing.queued')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('queued.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="grid grid-cols-3 gap-4">
                     <div class="row-span-3">
@@ -11,7 +11,8 @@
                     <div class="col-span-2">
                         <x-panel>
                             <x-form.textarea name='enunciated' />
-                            <x-form.input name='thumbnail' type='file'/>
+                            <x-form.input name='thumbnail' type='file'/>                            
+                            <input type="hidden" name="typepost_id" value="{{ $typepost->id ?? '' }}">
                         </x-panel>
                     </div>
                 </div>
